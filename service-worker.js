@@ -1,6 +1,6 @@
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-  'https://aidout.blogspot.com/',
+  'https://cdn.jsdelivr.net/gh/googlecodelabs/your-first-pwapp@master/public/offline.html',
 ];
 // CODELAB: Precache static resources here.
 evt.waitUntil(
