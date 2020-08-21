@@ -1,26 +1,21 @@
-// CODELAB: Add list of files to cache here.
-const FILES_TO_CACHE = [
-  'https://cdn.jsdelivr.net/gh/googlecodelabs/your-first-pwapp@master/public/offline.html',
+const cacheName = 'aidout';
+const staticAssets = [
+'https://aidout.blogspot.com/',
+ 'https://cdn.jsdelivr.net/gh/apsychoninja/blogger@master/site.webmanifest',
 ];
-// CODELAB: Precache static resources here.
-evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('[ServiceWorker] Pre-caching offline page');
-      return cache.addAll(FILES_TO_CACHE);
-    })
-);
 
-// CODELAB: Remove previous cached data from disk.
-evt.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(keyList.map((key) => {
-        if (key !== CACHE_NAME) {
-          console.log('[ServiceWorker] Removing old cache', key);
-          return caches.delete(key);
-        }
-      }));
-    })
-);
+self.addEventListerner('install', async e => {
+  const cache = await caches.open(cacheName);
+  await cache.addAll(staticAssets);
+  return self.skipWaiting();
+});
+
+self.addEventListener('activate', e => {
+  self.clients.claim();
+});
 
 
-
+// CODELAB: Add list of files to cache here.
+// const FILES_TO_CACHE = [
+//   'https://cdn.jsdelivr.net/gh/googlecodelabs/your-first-pwapp@master/public/offline.html',
+// ];
