@@ -2,7 +2,7 @@
     "name": "aidout",
     "short_name": "aidout",
     "description": "Aidout web application for users.",
-    "start_url": ".",
+    "start_url": "https://aidout.blogspot.com/",
     "icons": [
         {
             "src": "https://1.bp.blogspot.com/-EcHpCnH9vNY/Xz8r-16HBBI/AAAAAAAAMP0/N54dEDndZ4I7RoA5VieWhuedL_WwzlANACLcBGAsYHQ/s0/android-chrome-192x192.png",
